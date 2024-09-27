@@ -89,10 +89,7 @@ ChoixCursus;Apogée;Incoherence;IP sous une IP mère en PRC;"1. Script de détectio
 2. Correction manuelle dans APOGEE (après analyse, suppression de l’IP sous PRC ou suppression de la PRC)";Détection : ChoixCursus_Apogee_Incoherence_IPSousIPPRC_detection.sql;17/07/2024 (v24)
 ChoixCursus;Apogée;Incoherence;IP sans IA;"1. S’assurer de la normalité de la situation
 2. Si besoin, régulariser manuellement soit en créant l’IA associée ou en supprimant l’IP à la VET et aux ELP";N/A;17/07/2024 (v24)
-ChoixCursus;Apogée;Incoherence;IP en PRC ayant des lignes de résultat pour le même élément, le même apprenant et la même période;"1. Script de détection
-2. Suppression des résultats (la PRC prime)";TODO;17/07/2024 (v24)
 ControleCursus;Apogée, Autres;Incoherence;Lignes résultats APOGEE avec barème erroné (différent des autres lignes);"Pas de solution à ce jour ; objets exclus de la reprise des notes et résultats (suppression des lignes en base pivot)
  => les notes sur un barème erroné ne pourraient pas servir à un recalcul Pégase. En général, le calcul aux objets pères a été effectué dans APOGEE (et repris), donc l’absence de ces N/R au niveau inférieur ne pose pas de problème particulier.";;17/07/2024 (v24)
-ControleCursus;Apogée;Incoherence;Notes et résultats existent pour apprenant sans inscription (CHC) :  IP en PRC même objet, même période;"Script de détection
-
-Solution en cours de discussion : vérification si les deux notes sont identiques avant de supprimer le résultat sans CHC ?";Détection : ControleCursus_Apogee_Incoherence_NoteResultatSansIP_detection.sql;17/07/2024 (v24)
+ControleCursus;Apogée;Incoherence;Notes et résultats existent pour apprenant sans inscription (CHC) :  IP en PRC même objet, même période;"1. Script de détection
+2. Suppression des résultats (la PRC prime)";Détection : ControleCursus_Apogee_Incoherence_NoteResultatSansIP_detection.sql;17/07/2024 (v24)
