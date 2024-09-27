@@ -1,0 +1,98 @@
+Famille de données;Application source;Catégorie de problème;Problème de qualité de donnée rencontré;Solution/contournement;Scripts;Date de dernière modification
+Nomenclatures;Apogée, Autres;Incoherence;"Utilisation d’une occurrence non valide dans le contexte
+Les valeurs de nomenclatures APOGEE n’ont pas de période de validité (date début/fin de validité), contrairement à celles de PEGASE
+Le contrôle des dates de début/fin de validité des valeurs PEGASE génère des erreurs lorsque les valeurs ont été utilisées ""hors période"" dans APOGEE
+Exemple : Pays de naissance, Type Dernier Diplôme Obtenu";"Pour certaines nomenclatures, il est possible de dédoubler la valeur Pégase avec une période de validité supplémentaire
+Exemple : Série de baccalauréat
+
+Pour d’autres, il est impossible d'agir sur la validité des valeurs Pégase
+Exemple : nomenclature des Pays
+
+A ce jour, des cas sont toujours exclus de la RDD comme la cohérence date de naissance/début de validité de certains pays
+Exemple : Arménie avant 01/01/1993";N/A;17/07/2024 (v24)
+Nomenclatures;Non spécifique;EvolutionDesReferentiels;Valeurs de nomenclature utilisées dans la source sans correspondance Pégase (=> sans transcodification);"Dans certains cas, les nomenclatures Pégase doivent être complétées
+Exemple : derniers codes SISE manquants ";N/A;17/07/2024 (v24)
+Nomenclatures;Non spécifique;EvolutionDesReferentiels;Besoin d'utiliser une occurrence d’une nomenclature nationale pas encore livrée dans Pégase;"Création de l’occurrence dans Pégase et transcodification vers cette occurrence.
+A l’étude côté PC-Scol : Que se passera-t-il lorsque celle-ci sera officiellement livrée ?";N/A;17/07/2024 (v24)
+InscriptionAdministrative;Non spécifique;Format;"Nom ou prénom avec caractères non supportés dans Pégase ("","" ou caractère spécial ""‘"")";Correction manuelle dans l'application source;"Détection : InscriptionAdministrative_Apogee_Format_NomPrenom_detection.sql
+Correction : TODO";17/07/2024 (v24)
+InscriptionAdministrative;Non spécifique;Format;"Commune de naissance à l’étranger avec des caractères autres que les lettres ISO-8859-1
+Exemple : ESCH/ALZETTE";"1. Script de contrôle + script de nettoyage : par ex pour les caractères /,() remplacement par un espace
+2. Correction manuelle ";"Détection: InscriptionAdministrative_Apogee_Format_CommuneNaissanceEtranger_detection.sql
+Correction : TODO";17/07/2024 (v24)
+InscriptionAdministrative;Apogée, Autres;DonneeAbsente;"Année d’obtention du bac non renseignée ; concerne les séries ESEU, DAEU, …";"(fonctionnel) Définition de règles pour script correctif
+- Pour certaines séries année obt = année 1ère insc ens.sup
+- Pour certaines séries année obt  = année 1ère insc ens.sup +1 (DAEU, ...)";TODO;17/07/2024 (v24)
+InscriptionAdministrative;Non spécifique;Incoherence;Département d'obtention du bac incohérent avec code UAI de l'établissement d'obtention du bac;Correction manuelle dans la source après vérifications dans les PJ;TODO;17/07/2024 (v24)
+InscriptionAdministrative;Non spécifique;Incoherence;"Incohérence entre code PCS (travail ou non) et quotité travaillée
+Exemple : code PCS ""OUVRIER AGRICOLE"" avec une quotité d'activité ""SANS OBJET""";" * (fonctionnel) Définition de règles pour script correctif 
+   * pour les apprenants Médecine/Pharma/Dentaire
+   * pour les autres apprenants
+ * PREVENTION : rappel aux gestionnaires";TODO;17/07/2024 (v24)
+InscriptionAdministrative;Non spécifique;EvolutionDesReferentiels;Codes catégories socio-professionnelles : la nomenclature a été précisée, il faut mettre à jour le référentiel;"Script de correspondance pour corriger les catégories socio-professionnelles. Choix fonctionnel ne correspondant pas forcément à la réalité
+Par exemple : code 61 transposé sur code 62.";TODO;17/07/2024 (v24)
+InscriptionAdministrative;Non spécifique;Format;"Adresse mail personnelle invalide
+Exemple : "".@""";Correction manuelle;Détection : InscriptionAdministrative_Apogee_Format_Mail_detection.sql;17/07/2024 (v24)
+InscriptionAdministrative;Non spécifique;Validite;Etablissement d'obtention du bac fermé (selon les dates Pégase) à la date d’obtention du bac;" * Corrections manuelles (si pb de sélection UAI) après vérifications PJ
+ * SINON : à ce jour, des cas sont toujours exclus de la RDD car il est impossible d'agir sur les dates de la nomenclature Etablissements Pégase";N/A;17/07/2024 (v24)
+InscriptionAdministrative;Non spécifique;Validite;"Pays de naissance non valide à la date de naissance
+Exemple : Arménie en 1992, Azerbadjian en 1990, …";À ce jour, des cas sont toujours exclus de la RDD car il est impossible d'agir sur les dates de la nomenclature Pays;N/A;17/07/2024 (v24)
+InscriptionAdministrative;Apogée, Autres;DonneeAbsente;Quotité;" * Script de correspondance pour correction
+ * Remarque : À l'étude côté PC-Scol : Cette donnée passée n’est pas utile. Il serait du coup pratique de supprimer le contrôle, ou mettre juste un avertissement, plutôt qu’une anomalie. Cela permettrait de conserver les données telles qu’elles le sont dans la source.";TODO;17/07/2024 (v24)
+InscriptionAdministrative;Apogée;DonneeAbsente;"Lorsque le type de dernier diplôme obtenu est « 900 » dans Apogée (aucun diplôme supérieur),
+l'année d'obtention n'est pas obligatoire dans Apogée alors qu'elle le reste dans Pégase.";Correction manuelle ou par script. Par défaut mettre la date de première inscription dans l’établissement.;TODO;17/07/2024 (v24)
+InscriptionAdministrative;Apogée;DonneeAbsente;"Code pays bac
+Dans Apogée, pas de notion de pays d’obtention du bac, mais un code département 099 Etranger.";Correction manuelle ou par script : mettre à jour le code pays bac à 999 lorsque ce dernier ramène un code département 099.;TODO;17/07/2024 (v24)
+InscriptionAdministrative;Apogée;OccurrenceManquante;Transco des Etablissement Français dont le code Apogée n'existe pas dans Pégase;"Requête pour lister tous les établissements utilisés dans Apogée pour le bac et les cursus externes :
+ * si code identique dans Pégase, transco directe,
+ * si code Apogée non trouvé dans Pégase, recherche sur le libellé établissement afin de trouver une correspondance :
+   => si correspondance trouvée, transco du code établissement Apogée vers le « nouveau » code Pégase
+   => si correspondance non trouvée, initialisation d’un code établissement dans Pégase et transco du code établissement Apogée vers le même code établissement Pégase";"Détection : TODO
+Correction : N/A";17/07/2024 (v24)
+InscriptionAdministrative;Apogée, Autres;Validite;"Types de BAC invalides/non compatibles avec l'année d'obtention
+(évolution de nomenclatures+pas de date de fin de validité dans apogée)";Correction manuelle ou par script  : affecter les bons types de BAC en fonction des années d’obtention;TODO;17/07/2024 (v24)
+InscriptionAdministrative;Apogée, Autres;Validite;"Etablissement de BAC invalide/non compatible avec l'année d'obtention
+(évolution de nomenclatures+pas de date de fin de validité dans apogée)";Correction manuelle ou par script quand établissement non valide pour un code « générique » (à créer aussi dans Pégase et à ajouter dans le fichier transcos). ;TODO;17/07/2024 (v24)
+InscriptionAdministrative;Apogée, Autres;Validite;"Codes communes naissance Mayotte qui ont changé à partir de 2008
+(évolution de nomenclatures+pas de date de fin de validité dans apogée)";"Pour Mayotte, changement de département en 2008, du coup, il faut rechercher le code correspondance et globalement appliquer :
+ * 985xx avant 2008
+ * 976xx a partir de 2008
+ => Ajustement en base pivot pour les étudiants nés avant 2008";TODO;17/07/2024 (v24)
+InscriptionAdministrative;Apogée, Scolarix, Autres;Format;Numéros de téléphone : formats invalides pour les pays étrangers;"Corrections en base pivot
+Remarque PC-Scol : évolution Apogée prévue dans services numériques pour normaliser numéros de téléphone";Correction Scolarix  : InscriptionAdministrative_ScolarixPivot_Format_telephoneEtranger_correction.sql;17/07/2024 (v24)
+InscriptionAdministrative;Apogée;Incoherence;"Apprenants avec bac français (selon bac.COD_SIS_BAC) obtenu dans établissement ""étranger"" (code TPE=10)
+, ce qui est impossible dans Pégase";"1.Script de détection
+2.Enlever le code TPE 10 et s'assurer que l'établissement renseigné est bien dans la nomenclature des établissements Apogée (et pas les établissements étrangers !)";Détection : InscriptionAdministrative_Apogee_Incoherence_BacFrancaisEtranger_detection.sql;17/07/2024 (v24)
+InscriptionAdministrative;Apogée;DonneeNonReprise;Non reprise des inscriptions non validées et/ou non payées;S'assurer qu'il est normal qu'elles soient dans cet état dans Apogée;;17/07/2024 (v24)
+OffreFormation;Apogée, Autres;Incoherence;"Blocages par rapport à la matrice de liberté :
+ELP père et ELP fils de même nature
+Exemple : matière sous matière";Remarque PC-Scol : Cette contrainte n’existe plus dans ODF;;17/07/2024 (v24)
+OffreFormation;Apogée, Autres;Incoherence;"Blocages par rapport à la matrice de liberté :
+Objet B étant à la fois fils et petit-fils d’un objet A par l’intermédiaire d’un groupement";Remarque PC-Scol : Cette contrainte n’existe plus dans ODF;;17/07/2024 (v24)
+OffreFormation;Apogée;Incoherence;Listes Apogée sans ELP;Identification des ELP et listes Apogée concernés et mise en place de scripts de suppression.;TODO;17/07/2024 (v24)
+OffreFormation;Apogée, Autres;Incoherence;"Mentions de diplôme
+Dans Apogée, une unique mention de diplôme peut être utilisée pour plusieurs types de diplôme (un master ou une licence, par exemple) alors que dans Pégase cette mention existe en deux exemplaires : 1 pour les licences, 1 pour les masters.";"Contournement : Faire un passage pour les licences et un pour les masters , puis un déversement complet après les deux injections pour continuer la RDD
+Impact : il faut avoir 3 fichiers mentionDiplome : 1 pour les licences, 1 pour les masters et 1 complet et il faut penser à pointer sur le bon lors du déversement.
+
+Une correction est en cours de planification côté PC-Scol : déverser le code de la mention de diplôme Apogée en le préfixant par le type de diplôme. Ainsi une transcodification unique pourra avoir lieu dans Pégase";N/A;17/07/2024 (v24)
+OffreFormation;Apogée;RDDdansLeTemps;"Extraction des formations à injecter :
+On fait des requêtes à un instant T dans Apogée… Le temps passe, les maquettes évoluent dans apogée, et on doit penser à refaire les requêtes pour paramétrer l’outillage de RDD (mypegase.env)";"Pas de solution pour le moment
+Idée : Permettre de faire des select dans Apogée afin d’avoir les données réelles.
+Cela peut aussi être intéressant au niveau des référentiels";TODO;17/07/2024 (v24)
+OffreFormation;Apogée;RDDdansLeTemps;"RDD COF d’une VDI qui détient plusieurs VET, si reprise d’une seule VET à la fois :
+-le nouveau déversement écrase le déversement précédent (perte de la première VET injectée)
+-si les objets de formation précédents ont déjà été validés => refus d'injection ";Il faut injecter l’intégralité des VET d’une même VDI en même temps. ;N/A;17/07/2024 (v24)
+OffreFormation;Apogée, Autres;DonneeAbsente;Niveau interministériel obligatoire dans Pégase mais pas dans APOGEE;Remarque PC-Scol : Cette contrainte n’existe plus depuis qu'ODF a remplacé COF;N/A;17/07/2024 (v24)
+OffreFormation;Apogée, Autres;DonneeNonReprise;Domaine de formation renseigné dans Apogée, mais non récupérable dans Pégase pour les formations non diplômantes;Remarque PC-Scol : Cette contrainte n’existe plus depuis qu'ODF a remplacé COF;N/A;17/07/2024 (v24)
+ChoixCursus;Apogée;DonneeNonReprise;IP sur élément ou liste fermés/suspendus;Fonctionnalité RDD pot pourri permettant de reprendre dans Pégase une maquette « technique » (aucun sens fonctionnel) incluant éléments, listes ouverts, fermés ou suspendus;N/A;17/07/2024 (v24)
+ChoixCursus;Apogée;Incoherence;IP sous une IP mère en PRC;"1. Script de détection
+2. Correction manuelle dans APOGEE (après analyse, suppression de l’IP sous PRC ou suppression de la PRC)";Détection : ChoixCursus_Apogee_Incoherence_IPSousIPPRC_detection.sql;17/07/2024 (v24)
+ChoixCursus;Apogée;Incoherence;IP sans IA;"1. S’assurer de la normalité de la situation
+2. Si besoin, régulariser manuellement soit en créant l’IA associée ou en supprimant l’IP à la VET et aux ELP";N/A;17/07/2024 (v24)
+ChoixCursus;Apogée;Incoherence;IP en PRC ayant des lignes de résultat pour le même élément, le même apprenant et la même période;"1. Script de détection
+2. Suppression des résultats (la PRC prime)";TODO;17/07/2024 (v24)
+ControleCursus;Apogée, Autres;Incoherence;Lignes résultats APOGEE avec barème erroné (différent des autres lignes);"Pas de solution à ce jour ; objets exclus de la reprise des notes et résultats (suppression des lignes en base pivot)
+ => les notes sur un barème erroné ne pourraient pas servir à un recalcul Pégase. En général, le calcul aux objets pères a été effectué dans APOGEE (et repris), donc l’absence de ces N/R au niveau inférieur ne pose pas de problème particulier.";;17/07/2024 (v24)
+ControleCursus;Apogée;Incoherence;Notes et résultats existent pour apprenant sans inscription (CHC) :  IP en PRC même objet, même période;"Script de détection
+
+Solution en cours de discussion : vérification si les deux notes sont identiques avant de supprimer le résultat sans CHC ?";Détection : ControleCursus_Apogee_Incoherence_NoteResultatSansIP_detection.sql;17/07/2024 (v24)
