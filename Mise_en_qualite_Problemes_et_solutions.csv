@@ -65,11 +65,6 @@ InscriptionAdministrative;Apogée;Incoherence;"Apprenants avec bac français (se
 , ce qui est impossible dans Pégase";"1.Script de détection
 2.Enlever le code TPE 10 et s'assurer que l'établissement renseigné est bien dans la nomenclature des établissements Apogée (et pas les établissements étrangers !)";Détection : InscriptionAdministrative_Apogee_Incoherence_BacFrancaisEtranger_detection.sql;17/07/2024 (v24)
 InscriptionAdministrative;Apogée;DonneeNonReprise;Non reprise des inscriptions non validées et/ou non payées;S'assurer qu'il est normal qu'elles soient dans cet état dans Apogée;;17/07/2024 (v24)
-OffreFormation;Apogée, Autres;Incoherence;"Blocages par rapport à la matrice de liberté :
-ELP père et ELP fils de même nature
-Exemple : matière sous matière";Remarque PC-Scol : Cette contrainte n’existe plus dans ODF;;17/07/2024 (v24)
-OffreFormation;Apogée, Autres;Incoherence;"Blocages par rapport à la matrice de liberté :
-Objet B étant à la fois fils et petit-fils d’un objet A par l’intermédiaire d’un groupement";Remarque PC-Scol : Cette contrainte n’existe plus dans ODF;;17/07/2024 (v24)
 OffreFormation;Apogée;Incoherence;Listes Apogée sans ELP;Identification des ELP et listes Apogée concernés et mise en place de scripts de suppression.;TODO;17/07/2024 (v24)
 OffreFormation;Apogée, Autres;Incoherence;"Mentions de diplôme
 Dans Apogée, une unique mention de diplôme peut être utilisée pour plusieurs types de diplôme (un master ou une licence, par exemple) alors que dans Pégase cette mention existe en deux exemplaires : 1 pour les licences, 1 pour les masters.";"Contournement : Faire un passage pour les licences et un pour les masters , puis un déversement complet après les deux injections pour continuer la RDD
@@ -83,8 +78,6 @@ Cela peut aussi être intéressant au niveau des référentiels";TODO;17/07/2024
 OffreFormation;Apogée;RDDdansLeTemps;"RDD COF d’une VDI qui détient plusieurs VET, si reprise d’une seule VET à la fois :
 -le nouveau déversement écrase le déversement précédent (perte de la première VET injectée)
 -si les objets de formation précédents ont déjà été validés => refus d'injection ";Il faut injecter l’intégralité des VET d’une même VDI en même temps. ;N/A;17/07/2024 (v24)
-OffreFormation;Apogée, Autres;DonneeAbsente;Niveau interministériel obligatoire dans Pégase mais pas dans APOGEE;Remarque PC-Scol : Cette contrainte n’existe plus depuis qu'ODF a remplacé COF;N/A;17/07/2024 (v24)
-OffreFormation;Apogée, Autres;DonneeNonReprise;Domaine de formation renseigné dans Apogée, mais non récupérable dans Pégase pour les formations non diplômantes;Remarque PC-Scol : Cette contrainte n’existe plus depuis qu'ODF a remplacé COF;N/A;17/07/2024 (v24)
 ChoixCursus;Apogée;DonneeNonReprise;IP sur élément ou liste fermés/suspendus;Fonctionnalité RDD pot pourri permettant de reprendre dans Pégase une maquette « technique » (aucun sens fonctionnel) incluant éléments, listes ouverts, fermés ou suspendus;N/A;17/07/2024 (v24)
 ChoixCursus;Apogée;Incoherence;IP sous une IP mère en PRC;"1. Script de détection
 2. Correction manuelle dans APOGEE (après analyse, suppression de l’IP sous PRC ou suppression de la PRC)";Détection : ChoixCursus_Apogee_Incoherence_IPSousIPPRC_detection.sql;17/07/2024 (v24)
