@@ -66,11 +66,6 @@ InscriptionAdministrative;Apogée;Incoherence;"Apprenants avec bac français (se
 2.Enlever le code TPE 10 et s'assurer que l'établissement renseigné est bien dans la nomenclature des établissements Apogée (et pas les établissements étrangers !)";Détection : InscriptionAdministrative_Apogee_Incoherence_BacFrancaisEtranger_detection.sql;17/07/2024 (v24)
 InscriptionAdministrative;Apogée;DonneeNonReprise;Non reprise des inscriptions non validées et/ou non payées;S'assurer qu'il est normal qu'elles soient dans cet état dans Apogée;;17/07/2024 (v24)
 OffreFormation;Apogée;Incoherence;Listes Apogée sans ELP;Identification des ELP et listes Apogée concernés et mise en place de scripts de suppression.;TODO;17/07/2024 (v24)
-OffreFormation;Apogée, Autres;Incoherence;"Mentions de diplôme
-Dans Apogée, une unique mention de diplôme peut être utilisée pour plusieurs types de diplôme (un master ou une licence, par exemple) alors que dans Pégase cette mention existe en deux exemplaires : 1 pour les licences, 1 pour les masters.";"Contournement : Faire un passage pour les licences et un pour les masters , puis un déversement complet après les deux injections pour continuer la RDD
-Impact : il faut avoir 3 fichiers mentionDiplome : 1 pour les licences, 1 pour les masters et 1 complet et il faut penser à pointer sur le bon lors du déversement.
-
-Une correction est en cours de planification côté PC-Scol : déverser le code de la mention de diplôme Apogée en le préfixant par le type de diplôme. Ainsi une transcodification unique pourra avoir lieu dans Pégase";N/A;17/07/2024 (v24)
 OffreFormation;Apogée;RDDdansLeTemps;"Extraction des formations à injecter :
 On fait des requêtes à un instant T dans Apogée… Le temps passe, les maquettes évoluent dans apogée, et on doit penser à refaire les requêtes pour paramétrer l’outillage de RDD (mypegase.env)";"Pas de solution pour le moment
 Idée : Permettre de faire des select dans Apogée afin d’avoir les données réelles.
