@@ -20,10 +20,6 @@ InscriptionAdministrative;Non spécifique;Format;"Commune de naissance à l’é
 Exemple : ESCH/ALZETTE";"1. Script de contrôle + script de nettoyage : par ex pour les caractères /,() remplacement par un espace
 2. Correction manuelle ";"Détection: InscriptionAdministrative_Apogee_Format_CommuneNaissanceEtranger_detection.sql
 Correction : TODO";17/07/2024 (v24)
-InscriptionAdministrative;Apogée, Autres;DonneeAbsente;"Année d’obtention du bac non renseignée ; concerne les séries ESEU, DAEU, …";"(fonctionnel) Définition de règles pour script correctif
-- Pour certaines séries année obt = année 1ère insc ens.sup
-- Pour certaines séries année obt  = année 1ère insc ens.sup +1 (DAEU, ...)
-Rq : Amélioration à l’étude côté PC-Scol (relâchement du caractère obligatoire de la donnée d'année d’obtention du bac).";TODO;17/07/2024 (v24)
 InscriptionAdministrative;Non spécifique;Incoherence;Département d'obtention du bac incohérent avec code UAI de l'établissement d'obtention du bac;Correction manuelle dans la source après vérifications dans les PJ;TODO;17/07/2024 (v24)
 InscriptionAdministrative;Non spécifique;Incoherence;"Incohérence entre code PCS (travail ou non) et quotité travaillée
 Exemple : code PCS ""OUVRIER AGRICOLE"" avec une quotité d'activité ""SANS OBJET""";" * (fonctionnel) Définition de règles pour script correctif 
