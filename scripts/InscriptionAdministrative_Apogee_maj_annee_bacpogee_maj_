@@ -1,0 +1,3 @@
+update apprenant
+set annee_obtention_bac=annee_entree_etablissement
+where apprenant.annee_obtention_bac is null;
