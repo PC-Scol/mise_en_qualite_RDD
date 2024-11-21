@@ -1,6 +1,7 @@
 
 -- Creation d'une quotité Z dans le fichier de transco quotiteActivite.xlsx : Z	QUA007	NON RENSEIGNEE RDD APOGEE
 -- Les valeurs du code sources sont a ajuster en fonction de l'etablissement
+-- auteur : UGA
 
 -- Cas 1  : Eleves
 update apprenant set code_quotite_travaillee='F'
