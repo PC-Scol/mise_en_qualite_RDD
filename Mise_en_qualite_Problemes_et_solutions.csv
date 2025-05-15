@@ -24,10 +24,13 @@ Exemple : ESCH/ALZETTE";"1. Script de contrôle + script de nettoyage : par ex po
 Correction : TODO";17/07/2024 (v24)
 InscriptionAdministrative;Non spécifique;Incoherence;Département d'obtention du bac incohérent avec code UAI de l'établissement d'obtention du bac;Correction manuelle dans la source après vérifications dans les PJ;TODO;17/07/2024 (v24)
 InscriptionAdministrative;Non spécifique;Incoherence;"Incohérence entre code PCS (travail ou non) et quotité travaillée
-Exemple : code PCS ""OUVRIER AGRICOLE"" avec une quotité d'activité ""SANS OBJET""";" * (fonctionnel) Définition de règles pour script correctif 
+Exemple : code PCS ""OUVRIER AGRICOLE"" avec une quotité d'activité ""SANS OBJET""";"2 solutions et 1 acte de prévention :
+ * SOLUTION 1 (fonctionnel) : Définition de règles pour script correctif 
    * pour les apprenants Médecine/Pharma/Dentaire
    * pour les autres apprenants
- * PREVENTION : rappel aux gestionnaires";Correction : exemple: InscriptionAdministrative_Apogee_Traitement_des_CSP_correction_pivot.sql;17/07/2024 (v24)
+ * SOLUTION 2 (à partir de Pégase v28) : A partir de Pégase v28, la quotité travaillée devient facultative. En cas de problèmes d'incohérence avec la CSP, elle peut être mise à vide
+ * PREVENTION : rappel aux gestionnaires";"Correction : exemple SOLUTION 1: InscriptionAdministrative_Apogee_Traitement_des_CSP_correction_pivot.sql
+(ATTENTION, valeurs du code sources à ajuster en fonction de l'etablissement)";17/07/2024 (v24)
 InscriptionAdministrative;Non spécifique;EvolutionDesReferentiels;Codes catégories socio-professionnelles : la nomenclature a été précisée, il faut mettre à jour le référentiel;"Script de correspondance pour corriger les catégories socio-professionnelles. Choix fonctionnel ne correspondant pas forcément à la réalité
 Par exemple : code 61 transposé sur code 62.";TODO;17/07/2024 (v24)
 InscriptionAdministrative;Non spécifique;Format;"Adresse mail personnelle invalide
@@ -37,7 +40,8 @@ InscriptionAdministrative;Non spécifique;Validite;Etablissement d'obtention du b
 InscriptionAdministrative;Non spécifique;Validite;"Pays de naissance non valide à la date de naissance
 Exemple : Arménie en 1992, Azerbadjian en 1990,…";À ce jour, des cas sont toujours exclus de la RDD car il est impossible d'agir sur les dates de la nomenclature Pays;N/A;17/07/2024 (v24)
 InscriptionAdministrative;Apogée, Autres;DonneeAbsente;Quotité;" * Script de correspondance pour correction
- * Remarque : À l'étude côté PC-Scol : Cette donnée passée n'est pas utile. Il serait du coup pratique de supprimer le contrôle, ou mettre juste un avertissement, plutôt qu'une anomalie. Cela permettrait de conserver les données telles qu'elles le sont dans la source.";Correction : exemple: InscriptionAdministrative_Apogee_Traitement_des_CSP_correction_pivot.sql;17/07/2024 (v24)
+ * Remarque : À l'étude côté PC-Scol : Cette donnée passée n'est pas utile. Il serait du coup pratique de supprimer le contrôle, ou mettre juste un avertissement, plutôt qu'une anomalie. Cela permettrait de conserver les données telles qu'elles le sont dans la source.
+NOTE : à partir de Pégase v28, la quotité devient facultative => dès la livraison de la v28, ce problème devrait disparaître";Correction : exemple: InscriptionAdministrative_Apogee_Traitement_des_CSP_correction_pivot.sql;17/07/2024 (v24)
 InscriptionAdministrative;Apogée;DonneeAbsente;"Lorsque le type de dernier diplôme obtenu est « 900 » dans Apogée (aucun diplôme supérieur),
 l'année d'obtention n'est pas obligatoire dans Apogée alors qu'elle le reste dans Pégase.";Correction manuelle ou par script. Par défaut mettre la date de première inscription dans l'établissement.;Correction : exemple: InscriptionAdministrative_Apogee_maj_annee_dernier_diplome_correction_pivot.sql;17/07/2024 (v24)
 InscriptionAdministrative;Apogée;DonneeAbsente;"Code pays bac
