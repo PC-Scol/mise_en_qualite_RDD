@@ -71,7 +71,7 @@ OffreFormation;Apogée;RDDdansLeTemps;"Extraction des formations à injecter :
 On fait des requêtes à un instant T dans Apogée... Le temps passe, les maquettes évoluent dans apogée, et on doit penser à refaire les requêtes pour paramétrer l'outillage de RDD (mypegase.env)";"Pas de solution pour le moment
 Idée : Permettre de faire des select dans Apogée afin d'avoir les données réelles.
 Cela peut aussi être intéressant au niveau des référentiels";TODO;17/07/2024 (v24)
-OffreFormation;Apogée;RDDdansLeTemps;"RDD COF d'une VDI qui détient plusieurs VET, si reprise d'une seule VET à la fois :
+OffreFormation;Apogée;RDDdansLeTemps;"RDD ODF d'une VDI qui détient plusieurs VET, si reprise d'une seule VET à la fois :
 -le nouveau déversement écrase le déversement précédent (perte de la première VET injectée)
 -si les objets de formation précédents ont déjà été validés => refus d'injection ";Il faut injecter l'intégralité des VET d'une même VDI en même temps. ;N/A;17/07/2024 (v24)
 OffreFormation;Apogée;EvolutionDesReferentiels;"Valeurs de nomenclature utilisées dans Apogée avec plusieurs valeurs possibles dans Pégase :
@@ -89,6 +89,8 @@ ChoixCursus;Apogée;Incoherence;IP sous une IP mère en PRC;"1. Script de détectio
 2. Correction manuelle dans APOGEE (après analyse, suppression de l'IP sous PRC ou suppression de la PRC)";Détection : ChoixCursus_Apogee_Incoherence_IPSousIPPRC_detection.sql;17/07/2024 (v24)
 ChoixCursus;Apogée;Incoherence;IP sans IA;"1. S'assurer de la normalité de la situation
 2. Si besoin, régulariser manuellement soit en créant l'IA associée ou en supprimant l'IP à la VET et aux ELP";N/A;17/07/2024 (v24)
+ChoixCursus;Apogée;DonneeNonReprise;Acquis non capitalisés du fait de résultats obtenus sur une année en dehors du périmètre de RDD;"Saisie manuelle d'aménagements la première année du périmètre de RDD pour les apprenants ayant obtenu un résultat positif.
+Note : un outillage de simulation d'aménagements pour les acquis capitalisés à partir de résultats en dehors du périmètre de RDD est en cours de développement par l'UCA.";En cours de développement;19/05/2025 (v28)
 ControleCursus;Apogée, Autres;Incoherence;Lignes résultats APOGEE avec barème erroné (différent des autres lignes);"Pas de solution à ce jour ; objets exclus de la reprise des notes et résultats (suppression des lignes en base pivot)
  => les notes sur un barème erroné ne pourraient pas servir à un recalcul Pégase. En général, le calcul aux objets pères a été effectué dans APOGEE (et repris), donc l'absence de ces N/R au niveau inférieur ne pose pas de problème particulier.";;17/07/2024 (v24)
 ControleCursus;Apogée;Incoherence;Notes et résultats existent pour apprenant sans inscription (CHC) :  IP en PRC même objet, même période;"1. Script de détection
