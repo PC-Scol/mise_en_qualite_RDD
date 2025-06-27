@@ -37,12 +37,10 @@ InscriptionAdministrative;Non spécifique;Validite;Etablissement d'obtention du b
  * SINON : Solution provisoire : Sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualité, la coadministration Pégase peut intervenir sur les dates de validité à problème de la nomenclature des établissements";N/A;17/07/2024 (v24)
 InscriptionAdministrative;Non spécifique;Validite;"Pays de naissance non valide à la date de naissance
 Exemple : Arménie en 1992, Azerbadjian en 1990,…";Solution provisoire : Sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualité, la coadministration Pégase peut intervenir sur les dates de validité à problème de cette nomenclature;N/A;17/07/2024 (v24)
-InscriptionAdministrative;Apogée, Autres;DonneeAbsente;Quotité;" * Script de correspondance pour correction
- * Remarque : À l'étude côté PC-Scol : Cette donnée passée n'est pas utile. Il serait du coup pratique de supprimer le contrôle, ou mettre juste un avertissement, plutôt qu'une anomalie. Cela permettrait de conserver les données telles qu'elles le sont dans la source.
-NOTE : à partir de Pégase v28, la quotité devient facultative => dès la livraison de la v28, ce problème disparaît";Correction : exemple: InscriptionAdministrative_Apogee_Traitement_des_CSP_correction_pivot.sql;17/07/2024 (v24)
 InscriptionAdministrative;Apogée;DonneeAbsente;"Lorsque le type de dernier diplôme obtenu est « 900 » dans Apogée (aucun diplôme supérieur),
-l'année d'obtention n'est pas obligatoire dans Apogée alors qu'elle le reste dans Pégase.";" * Correction manuelle ou par script. Par défaut mettre la date de première inscription dans l'établissement.
- * Prévention : rappel aux gestionnaires";Correction : exemple: InscriptionAdministrative_Apogee_maj_annee_dernier_diplome_correction_pivot.sql;17/07/2024 (v24)
+l'année d'obtention n'est pas obligatoire dans Apogée alors qu'elle le reste dans Pégase.";" * A partir de Pégase v28, si le type dernier diplôme obtenu Apogée correspond à ""aucun diplôme"" alors l'année d'obtention est initialisée avec la date d'entrée dans l'établissement (si elle est renseignée) et l'année précédente sinon.
+ * Si l'année d'obtention du dernier diplome reste vide alors l'établissement peut renseigner en base pivot l'année d'obtention arbitraitement avec la valeur de l'année précédente via un script
+ * Prévention : rappel aux gestionnaires";TODO;17/07/2024 (v28)
 InscriptionAdministrative;Apogée;DonneeAbsente;"Code pays bac
 Dans Apogée, pas de notion de pays d'obtention du bac, mais un code département 099 Etranger.";Correction manuelle ou par script : mettre à jour le code pays bac à 999 lorsque ce dernier ramène un code département 099.;TODO;17/07/2024 (v24)
 InscriptionAdministrative;Apogée;OccurrenceManquante;Transco des Etablissement Français dont le code Apogée n'existe pas dans Pégase;"Requête pour lister tous les établissements utilisés dans Apogée pour le bac et les cursus externes :
