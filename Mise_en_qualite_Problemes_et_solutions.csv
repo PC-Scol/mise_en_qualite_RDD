@@ -14,14 +14,13 @@ Nomenclatures;Non spécifique;EvolutionDesReferentiels;Besoin d'utiliser une occu
 A l'étude côté PC-Scol : Que se passera-t-il lorsque celle-ci sera officiellement livrée ?";"RefTool : appli léger Web pour effectuer des sauvegardes et des restaurations de certains nomenclatures 
 Lien pour récupérer l'appli: https://github.com/PC-Scol/outil-sauvegarde-restauration-nomenclatures
 ";17/07/2024 (v24)
-InscriptionAdministrative;Non spécifique;Format;"Nom ou prénom avec caractères non supportés dans Pégase ("","" ou caractère spécial ""‘"")";Correction manuelle dans l'application source;"Détection : InscriptionAdministrative_Apogee_Format_NomPrenom_detection.sql
+Identité;Non spécifique;Format;"Nom ou prénom avec caractères non supportés dans Pégase ("","" ou caractère spécial ""‘"")";Correction manuelle dans l'application source;"Détection : InscriptionAdministrative_Apogee_Format_NomPrenom_detection.sql
 Correction : TODO";17/07/2024 (v24)
-InscriptionAdministrative;Non spécifique;Format;"Commune de naissance à l'étranger avec des caractères autres que les lettres ISO-8859-1
-Exemple : ESCH/ALZETTE";"1. Script de contrôle + script de nettoyage : par ex pour les caractères /,() remplacement par un espace
-2. Correction manuelle ";"Détection: InscriptionAdministrative_Apogee_Format_CommuneNaissanceEtranger_detection.sql
-Correction : TODO";17/07/2024 (v24)
-InscriptionAdministrative;Non spécifique;Incoherence;Département d'obtention du bac incohérent avec code UAI de l'établissement d'obtention du bac;Correction manuelle dans la source après vérifications dans les PJ;TODO;17/07/2024 (v24)
-InscriptionAdministrative;Non spécifique;Incoherence;"Incohérence entre code PCS (travail ou non) et quotité travaillée
+Identité;Non spécifique;DonneeNonReprise;Absence des prénoms 4 et 5 des apprenants dans Pégase. Concaténés dans la source dans les champs prénom 1, 2 ou 3. Peut fausser l'identification des apprenants auprès d'INES.;Les champs des prénoms 1, 2 et 3 en base pivot doivent contenir uniquement les prénoms 1, 2 et 3 de l'apprenant.;TODO (selon pratiques établissement);13/01/2026 (v31)
+Identité;Non spécifique;Format;"Commune de naissance à l'étranger avec des caractères autres que les lettres ISO-8859-1
+Exemple : ESCH/ALZETTE";Corrigé à partir de Pégase et rdd-tools v31;N/A;13/01/2026 (v31)
+Identité;Non spécifique;Incoherence;Département d'obtention du bac incohérent avec code UAI de l'établissement d'obtention du bac;Correction manuelle dans la source après vérifications dans les PJ;TODO;17/07/2024 (v24)
+Identité;Non spécifique;Incoherence;"Incohérence entre code PCS (travail ou non) et quotité travaillée
 Exemple : code PCS ""OUVRIER AGRICOLE"" avec une quotité d'activité ""SANS OBJET""";"2 solutions et 1 acte de prévention :
  * Solution 1 (fonctionnel) : Définition de règles pour script correctif 
    * pour les apprenants Médecine/Pharma/Dentaire
@@ -29,38 +28,38 @@ Exemple : code PCS ""OUVRIER AGRICOLE"" avec une quotité d'activité ""SANS OBJET
  * Solution 2 (à partir de Pégase v28) : A partir de Pégase v28, la quotité travaillée devient facultative. En cas de problèmes d'incohérence avec la CSP, elle peut être mise à vide
  * Prévention : rappel aux gestionnaires";"Correction : exemple SOLUTION 1: InscriptionAdministrative_Apogee_Traitement_des_CSP_correction_pivot.sql
 (ATTENTION, valeurs du code sources à ajuster en fonction de l'etablissement)";17/07/2024 (v24)
-InscriptionAdministrative;Non spécifique;EvolutionDesReferentiels;Codes catégories socio-professionnelles : la nomenclature a été précisée, il faut mettre à jour le référentiel;"Script de correspondance pour corriger les catégories socio-professionnelles. Choix fonctionnel ne correspondant pas forcément à la réalité
+Identité;Non spécifique;EvolutionDesReferentiels;Codes catégories socio-professionnelles : la nomenclature a été précisée, il faut mettre à jour le référentiel;"Script de correspondance pour corriger les catégories socio-professionnelles. Choix fonctionnel ne correspondant pas forcément à la réalité
 Par exemple : code 61 transposé sur code 62.";TODO;17/07/2024 (v24)
-InscriptionAdministrative;Non spécifique;Format;"Adresse mail personnelle invalide
+Identité;Non spécifique;Format;"Adresse mail personnelle invalide
 Exemple : "".@""";Correction manuelle;Détection : InscriptionAdministrative_Apogee_Format_Mail_detection.sql;17/07/2024 (v24)
-InscriptionAdministrative;Non spécifique;Validite;Etablissement d'obtention du bac fermé (selon les dates Pégase) à la date d'obtention du bac;" * Corrections manuelles (si pb de sélection UAI) après vérifications PJ
+Identité;Non spécifique;Validite;Etablissement d'obtention du bac fermé (selon les dates Pégase) à la date d'obtention du bac;" * Corrections manuelles (si pb de sélection UAI) après vérifications PJ
  * SINON : Solution provisoire : Sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualité, la coadministration Pégase peut intervenir sur les dates de validité à problème de la nomenclature des établissements";N/A;17/07/2024 (v24)
-InscriptionAdministrative;Non spécifique;Validite;"Pays de naissance non valide à la date de naissance
+Identité;Non spécifique;Validite;"Pays de naissance non valide à la date de naissance
 Exemple : Arménie en 1992, Azerbadjian en 1990,…";Solution provisoire : Sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualité, la coadministration Pégase peut intervenir sur les dates de validité à problème de cette nomenclature;N/A;17/07/2024 (v24)
-InscriptionAdministrative;Apogée;DonneeAbsente;"Lorsque le type de dernier diplôme obtenu est « 900 » dans Apogée (aucun diplôme supérieur),
+Identité;Apogée;DonneeAbsente;"Lorsque le type de dernier diplôme obtenu est « 900 » dans Apogée (aucun diplôme supérieur),
 l'année d'obtention n'est pas obligatoire dans Apogée alors qu'elle le reste dans Pégase.";" * A partir de Pégase v28, si le type dernier diplôme obtenu Apogée correspond à ""aucun diplôme"" alors l'année d'obtention est initialisée avec la date d'entrée dans l'établissement (si elle est renseignée) et l'année précédente sinon.
  * Si l'année d'obtention du dernier diplome reste vide alors l'établissement peut renseigner en base pivot l'année d'obtention arbitraitement avec la valeur de l'année précédente via un script
  * Prévention : rappel aux gestionnaires";TODO;17/07/2024 (v28)
-InscriptionAdministrative;Apogée;DonneeAbsente;"Code pays bac
+Identité;Apogée;DonneeAbsente;"Code pays bac
 Dans Apogée, pas de notion de pays d'obtention du bac, mais un code département 099 Etranger.";Correction manuelle ou par script : mettre à jour le code pays bac à 999 lorsque ce dernier ramène un code département 099.;TODO;17/07/2024 (v24)
-InscriptionAdministrative;Apogée;OccurrenceManquante;Transco des Etablissement Français dont le code Apogée n'existe pas dans Pégase;"Requête pour lister tous les établissements utilisés dans Apogée pour le bac et les cursus externes :
+Identité;Apogée;OccurrenceManquante;Transco des Etablissement Français dont le code Apogée n'existe pas dans Pégase;"Requête pour lister tous les établissements utilisés dans Apogée pour le bac et les cursus externes :
  * si code identique dans Pégase, transco directe,
  * si code Apogée non trouvé dans Pégase, recherche sur le libellé établissement afin de trouver une correspondance :
    => si correspondance trouvée, transco du code établissement Apogée vers le « nouveau » code Pégase
    => si correspondance non trouvée, initialisation d'un code établissement dans Pégase et transco du code établissement Apogée vers le même code établissement Pégase";"Détection : TODO
 Correction : N/A";17/07/2024 (v24)
-InscriptionAdministrative;Apogée, Autres;Validite;"Types de BAC invalides/non compatibles avec l'année d'obtention
+Identité;Apogée, Autres;Validite;"Types de BAC invalides/non compatibles avec l'année d'obtention
 (évolution de nomenclatures+pas de date de fin de validité dans apogée)";Correction manuelle ou par script  : affecter les bons types de BAC en fonction des années d'obtention;TODO;17/07/2024 (v24)
-InscriptionAdministrative;Apogée, Autres;Validite;"Etablissement de BAC invalide/non compatible avec l'année d'obtention
+Identité;Apogée, Autres;Validite;"Etablissement de BAC invalide/non compatible avec l'année d'obtention
 (évolution de nomenclatures+pas de date de fin de validité dans apogée)";Correction manuelle ou par script quand établissement non valide pour un code « générique » (à créer aussi dans Pégase et à ajouter dans le fichier transcos).;TODO;17/07/2024 (v24)
-InscriptionAdministrative;Apogée, Autres;Validite;"Codes communes naissance Mayotte qui ont changé à partir de 2008
+Identité;Apogée, Autres;Validite;"Codes communes naissance Mayotte qui ont changé à partir de 2008
 (évolution de nomenclatures+pas de date de fin de validité dans apogée)";"Pour Mayotte, changement de département en 2008, du coup, il faut rechercher le code correspondance et globalement appliquer :
  * 985xx avant 2008
  * 976xx a partir de 2008
  => Ajustement en base pivot pour les étudiants nés avant 2008";TODO;17/07/2024 (v24)
-InscriptionAdministrative;Apogée, Scolarix, Autres;Format;Numéros de téléphone : formats invalides pour les pays étrangers;"Corrections en base pivot
+Identité;Apogée, Scolarix, Autres;Format;Numéros de téléphone : formats invalides pour les pays étrangers;"Corrections en base pivot
 Remarque PC-Scol : évolution Apogée prévue dans services numériques pour normaliser numéros de téléphone";Correction Scolarix  : InscriptionAdministrative_ScolarixPivot_Format_telephoneEtranger_correction.sql;17/07/2024 (v24)
-InscriptionAdministrative;Apogée;Incoherence;"Apprenants avec bac français (selon bac.COD_SIS_BAC) obtenu dans établissement ""étranger"" (code TPE=10), 
+Identité;Apogée;Incoherence;"Apprenants avec bac français (selon bac.COD_SIS_BAC) obtenu dans établissement ""étranger"" (code TPE=10), 
 ce qui est impossible dans Pégase";"1.Script de détection
 2.Enlever le code TPE 10 et s'assurer que l'établissement renseigné est bien dans la nomenclature des établissements Apogée (et pas les établissements étrangers !)";Détection : InscriptionAdministrative_Apogee_Incoherence_BacFrancaisEtranger_detection.sql;17/07/2024 (v24)
 InscriptionAdministrative;Apogée;DonneeNonReprise;Non reprise des inscriptions non validées et/ou non payées;S'assurer qu'il est normal qu'elles soient dans cet état dans Apogée;;17/07/2024 (v24)
