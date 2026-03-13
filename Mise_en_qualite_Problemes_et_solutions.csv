@@ -84,11 +84,13 @@ codeSource => codePegase
 ChoixCursus;Apogée;DonneeNonReprise;IP sur élément ou liste fermés/suspendus;Fonctionnalité RDD pot pourri permettant de reprendre dans Pégase une maquette « technique » (aucun sens fonctionnel) incluant éléments, listes ouverts, fermés ou suspendus;N/A;17/07/2024 (v24)
 ChoixCursus;Apogée;Incoherence;IP sous une IP mère en PRC;"1. Script de détection
 2. Correction manuelle dans APOGEE (après analyse, suppression de l'IP sous PRC ou suppression de la PRC)";Détection : ChoixCursus_Apogee_Incoherence_IPSousIPPRC_detection.sql;17/07/2024 (v24)
+ChoixCursus;Apogée;Incoherence;IP en PRC potentiellement non gérées par les flux automatiques de RDD du fait des particularités suivantes : renconciations, erreurs de saisies, ...;"1. Scripts de détection
+2. Actions manuelles dans la RDD et/ou dans Pégase selon l'analyse fonctionnelle de l'établissement";"Détection :
+- ChoixCursus_Apogee_Incoherence_IPPRC_resultats_01_detection.sql
+- ChoixCursus_Apogee_Incoherence_IPPRC_resultats_02_detail_detection.sql";13/03/2026 (v31)
 ChoixCursus;Apogée;Incoherence;IP sans IA;"1. S'assurer de la normalité de la situation
 2. Si besoin, régulariser manuellement soit en créant l'IA associée ou en supprimant l'IP à la VET et aux ELP";N/A;17/07/2024 (v24)
-ChoixCursus;Apogée;DonneeNonReprise;Acquis non capitalisés du fait de résultats obtenus sur une année en dehors du périmètre de RDD;"Saisie manuelle d'aménagements la première année du périmètre de RDD pour les apprenants ayant obtenu un résultat positif.
-Note : un outillage de simulation d'aménagements pour les acquis capitalisés à partir de résultats en dehors du périmètre de RDD est en cours de développement par l'UCA.";En cours de développement;19/05/2025 (v28)
+ChoixCursus;Apogée;DonneeNonReprise;Acquis non capitalisés du fait de résultats obtenus sur une année en dehors du périmètre de RDD;"Soit, saisie manuelle d'aménagements la première année du périmètre de RDD pour les apprenants ayant obtenu un résultat positif.
+Soit, utilisation de l'outil de simulation d'aménagements pour les acquis capitalisés à partir de résultats en dehors du périmètre de RDD";https://github.com/PC-Scol/rdd_prc_to_vac;19/05/2025 (v28)
 ControleCursus;Apogée, Autres;Incoherence;Lignes résultats APOGEE avec barème erroné (différent des autres lignes);"Pas de solution à ce jour ; objets exclus de la reprise des notes et résultats (suppression des lignes en base pivot)
  => les notes sur un barème erroné ne pourraient pas servir à un recalcul Pégase. En général, le calcul aux objets pères a été effectué dans APOGEE (et repris), donc l'absence de ces N/R au niveau inférieur ne pose pas de problème particulier.";;17/07/2024 (v24)
-ControleCursus;Apogée;Incoherence;Notes et résultats existent pour apprenant sans inscription (CHC) :  IP en PRC même objet, même période;"1. Script de détection
-2. Suppression des résultats (la PRC prime)";Détection : ControleCursus_Apogee_Incoherence_NoteResultatSansIP_detection.sql;17/07/2024 (v24)
