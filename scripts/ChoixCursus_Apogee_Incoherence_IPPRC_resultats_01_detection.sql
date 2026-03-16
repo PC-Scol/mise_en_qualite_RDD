@@ -1,7 +1,7 @@
 -- description : Script Apogée de listing de toutes les IPs en PRC ayant à la fois :
---					- des résultats potififs classiques pour le même élément, le même apprenant et la même année
---					- des résultats positifs (classiques ou via LCC) ou VAC pour le même élément, le même apprenant et des années précédentes 
---				Il y a un RISQUE QUE CES CAS NE SOIENT PAS GÉRÉS PAR LA RDD.
+--					- un résultat potifif "classique" pour le même élément, le même apprenant et la même année
+--					- au moins un résultat positif ("classique" ou via LCC) ou VAC pour le même élément, le même apprenant et des années précédentes
+--				Il y a un RISQUE QUE CES CAS NE SOIENT PAS GÉRÉS PAR LA RDD (voir la documentation RDD pour les cas bien gérés).
 --				Les IPs retournées devront être analysées avec les résultats associés pour savoir s'ils sont fonctionnellement
 --				 normaux (ex: renonciation) ou anormaux(ex: erreur de saisie) et quel correction y apporter pour la RDD.
 --					ex: si renonciation (fonctionnellement normal mais non-géré par les flux de RDD) :
