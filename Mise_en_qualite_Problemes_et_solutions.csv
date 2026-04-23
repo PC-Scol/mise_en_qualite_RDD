@@ -21,13 +21,12 @@ Identité;Non spécifique;Format;"Commune de naissance à l'étranger avec des carac
 Exemple : ESCH/ALZETTE";Corrigé à partir de Pégase et rdd-tools v31;N/A;13/01/2026 (v31)
 Identité;Non spécifique;Incoherence;Département d'obtention du bac incohérent avec code UAI de l'établissement d'obtention du bac;Correction manuelle dans la source après vérifications dans les PJ;TODO;17/07/2024 (v24)
 Identité;Non spécifique;Incoherence;"Incohérence entre code PCS (travail ou non) et quotité travaillée
-Exemple : code PCS ""OUVRIER AGRICOLE"" avec une quotité d'activité ""SANS OBJET""";"2 solutions et 1 acte de prévention :
+Exemple : code PCS ""MILITAIRE"" avec une quotité d'activité ""SANS OBJET""";"2 solutions et 1 acte de prévention :
  * Solution 1 (fonctionnel) : Définition de règles pour script correctif 
    * pour les apprenants Médecine/Pharma/Dentaire
    * pour les autres apprenants
  * Solution 2 (à partir de Pégase v28) : A partir de Pégase v28, la quotité travaillée devient facultative. En cas de problèmes d'incohérence avec la CSP, elle peut être mise à vide
- * Prévention : rappel aux gestionnaires";"Correction : exemple SOLUTION 1: InscriptionAdministrative_Apogee_Traitement_des_CSP_correction_pivot.sql
-(ATTENTION, valeurs du code sources à ajuster en fonction de l'etablissement)";17/07/2024 (v24)
+ * Prévention : rappel aux gestionnaires";TODO;23/04/2026 (v32)
 Identité;Non spécifique;EvolutionDesReferentiels;Codes catégories socio-professionnelles : la nomenclature a été précisée, il faut mettre à jour le référentiel;"Script de correspondance pour corriger les catégories socio-professionnelles. Choix fonctionnel ne correspondant pas forcément à la réalité
 Par exemple : code 61 transposé sur code 62.";TODO;17/07/2024 (v24)
 Identité;Non spécifique;Format;"Adresse mail personnelle invalide
