@@ -1,95 +1,100 @@
-Famille de donnÈes;Application source;CatÈgorie de problËme;ProblËme de qualitÈ de donnÈe rencontrÈ;Solution/contournement;Scripts;Date de derniËre modification
-Nomenclatures;ApogÈe, Autres;Incoherence;"Utilisation d'une occurrence non valide dans le contexte
-Les valeurs de nomenclatures APOGEE n'ont pas de pÈriode de validitÈ (date dÈbut/fin de validitÈ), contrairement ‡ celles de PEGASE
-Le contrÙle des dates de dÈbut/fin de validitÈ des valeurs PEGASE gÈnËre des erreurs lorsque les valeurs ont ÈtÈ utilisÈes ""hors pÈriode"" dans APOGEE
-Exemple : Pays de naissance, Type Dernier DiplÙme Obtenu";"Pour certaines nomenclatures, il est possible de dÈdoubler la valeur PÈgase avec une pÈriode de validitÈ supplÈmentaire
-Exemple : SÈrie de baccalaurÈat
+ÔªøFamille de donn√©es;Application source;Cat√©gorie de probl√®me;Probl√®me de qualit√© de donn√©e rencontr√©;Solution/contournement;Scripts;Date de derni√®re modification
+Nomenclatures;Apog√©e, Autres;Incoherence;"Utilisation d'une occurrence non valide dans le contexte
+Les valeurs de nomenclatures APOGEE n'ont pas de p√©riode de validit√© (date d√©but/fin de validit√©), contrairement √† celles de PEGASE
+Le contr√¥le des dates de d√©but/fin de validit√© des valeurs PEGASE g√©n√®re des erreurs lorsque les valeurs ont √©t√© utilis√©es ""hors p√©riode"" dans APOGEE
+Exemple : Pays de naissance, Type Dernier Dipl√¥me Obtenu";"Pour certaines nomenclatures, il est possible de d√©doubler la valeur P√©gase avec une p√©riode de validit√© suppl√©mentaire
+Exemple : S√©rie de baccalaur√©at
 
-Pour d'autres, il est impossible d'agir sur la validitÈ des valeurs PÈgase via l'application. Cependant, provisoirement, pour certaines nomenclatures, sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualitÈ, la coadministration PÈgase peut intervenir sur les dates de validitÈ.
-Exemple : nomenclature des Pays";N/A;17/07/2024 (v24)
-Nomenclatures;Non spÈcifique;EvolutionDesReferentiels;Valeurs de nomenclature utilisÈes dans la source sans correspondance PÈgase (=> sans transcodification);"Plusieurs possibilitÈs :
-* soit les nomenclatures PÈgase sont semi-ouvertes ou ouvertes => complÈter les nomenclatures. Exemple : derniers codes SISE manquants
-* soit les nomenclatures PÈgase sont fermÈes => reventiler les nomenclatures sources vers les nomenclatures PÈgase livrÈes. Exemple : mentions honorifiques";N/A;17/07/2024 (v24)
-Nomenclatures;Non spÈcifique;EvolutionDesReferentiels;Besoin d'utiliser une occurrence d'une nomenclature nationale pas encore livrÈe dans PÈgase;"CrÈation de l'occurrence dans PÈgase et transcodification vers cette occurrence.
-A l'Ètude cÙtÈ PC-Scol : Que se passera-t-il lorsque celle-ci sera officiellement livrÈe ?";"RefTool : appli lÈger Web pour effectuer des sauvegardes et des restaurations de certains nomenclatures 
-Lien pour rÈcupÈrer l'appli: https://github.com/PC-Scol/outil-sauvegarde-restauration-nomenclatures
-";17/07/2024 (v24)
-IdentitÈ;Non spÈcifique;Format;"Nom ou prÈnom avec caractËres non supportÈs dans PÈgase ("","" ou caractËre spÈcial ""ë"")";Correction manuelle dans l'application source;"DÈtection : InscriptionAdministrative_Apogee_Format_NomPrenom_detection.sql
+Pour d'autres, il est impossible d'agir sur la validit√© des valeurs P√©gase via l'application. Cependant, provisoirement, pour certaines nomenclatures, sur demande explicite via ticket de support et en cas d'absence de solution alternative de mise en qualit√©, l‚Äô√©quipe de support P√©gase peut intervenir sur les dates de validit√©.
+Exemple : nomenclature des Pays
+
+Si la donn√©e est facultative, il est √©galement possible de ne pas la reprendre dans ces cas d‚Äôerreur (par exemple en supprimant ces donn√©es en base pivot).";N/A;09/11/2024 (v34)
+Nomenclatures;Non sp√©cifique;EvolutionDesReferentiels;Valeurs de nomenclature utilis√©es dans la source sans correspondance P√©gase (=> sans transcodification);"Plusieurs possibilit√©s :
+* soit les nomenclatures P√©gase sont semi-ouvertes ou ouvertes => compl√©ter les nomenclatures. Exemple : derniers codes SISE manquants
+* soit les nomenclatures P√©gase sont ferm√©es => reventiler les nomenclatures sources vers les nomenclatures P√©gase livr√©es. Exemple : mentions honorifiques";N/A;17/07/2024 (v24)
+Nomenclatures;Non sp√©cifique;EvolutionDesReferentiels;Besoin d'utiliser une occurrence d'une nomenclature nationale pas encore livr√©e dans P√©gase;"Cr√©ation de l'occurrence dans P√©gase et transcodification vers cette occurrence.
+A l'√©tude c√¥t√© PC-Scol : Que se passera-t-il lorsque celle-ci sera officiellement livr√©e ?";"RefTool : appli l√©ger Web pour effectuer des sauvegardes et des restaurations de certains nomenclatures 
+Lien pour r√©cup√©rer l'appli: https://github.com/PC-Scol/outil-sauvegarde-restauration-nomenclatures";17/07/2024 (v24)
+Identit√©;Non sp√©cifique;Format;"Nom ou pr√©nom avec caract√®res non support√©s dans P√©gase ("","" ou caract√®re sp√©cial ""‚Äò"")";Correction manuelle dans l'application source;"D√©tection : InscriptionAdministrative_Apogee_Format_NomPrenom_detection.sql
 Correction : TODO";17/07/2024 (v24)
-IdentitÈ;Non spÈcifique;DonneeNonReprise;Absence des prÈnoms 4 et 5 des apprenants dans PÈgase. ConcatÈnÈs dans la source dans les champs prÈnom 1, 2 ou 3. Peut fausser l'identification des apprenants auprËs d'INES.;Les champs des prÈnoms 1, 2 et 3 en base pivot doivent contenir uniquement les prÈnoms 1, 2 et 3 de l'apprenant.;TODO (selon pratiques Ètablissement);13/01/2026 (v31)
-IdentitÈ;Non spÈcifique;Format;"Commune de naissance ‡ l'Ètranger avec des caractËres autres que les lettres ISO-8859-1
-Exemple : ESCH/ALZETTE";CorrigÈ ‡ partir de PÈgase et rdd-tools v31;N/A;13/01/2026 (v31)
-IdentitÈ;Non spÈcifique;Incoherence;DÈpartement d'obtention du bac incohÈrent avec code UAI de l'Ètablissement d'obtention du bac;Correction manuelle dans la source aprËs vÈrifications dans les PJ;TODO;17/07/2024 (v24)
-IdentitÈ;Non spÈcifique;Incoherence;"IncohÈrence entre code PCS (travail ou non) et quotitÈ travaillÈe
-Exemple : code PCS ""MILITAIRE"" avec une quotitÈ d'activitÈ ""SANS OBJET""";"2 solutions et 1 acte de prÈvention :
- * Solution 1 (fonctionnel) : DÈfinition de rËgles pour script correctif 
-   * pour les apprenants MÈdecine/Pharma/Dentaire
+Identit√©;Non sp√©cifique;DonneeNonReprise;Absence des pr√©noms 4 et 5 des apprenants dans P√©gase. Concat√©n√©s dans la source dans les champs pr√©nom 1, 2 ou 3. Peut fausser l'identification des apprenants aupr√®s d'INES.;Les champs des pr√©noms 1, 2 et 3 en base pivot doivent contenir uniquement les pr√©noms 1, 2 et 3 de l'apprenant.;TODO (selon pratiques √©tablissement);13/01/2026 (v31)
+Identit√©;Non sp√©cifique;Format;"Commune de naissance √† l'√©tranger avec des caract√®res autres que les lettres ISO-8859-1
+Exemple : ESCH/ALZETTE";Corrig√© √† partir de P√©gase et rdd-tools v31;N/A;13/01/2026 (v31)
+Identit√©;Non sp√©cifique;Incoherence;D√©partement d'obtention du bac incoh√©rent avec code UAI de l'√©tablissement d'obtention du bac;Correction manuelle dans la source apr√®s v√©rifications dans les PJ;TODO;17/07/2024 (v24)
+Identit√©;Non sp√©cifique;Incoherence;"Incoh√©rence entre code PCS (travail ou non) et quotit√© travaill√©e
+Exemple : code PCS ""MILITAIRE"" avec une quotit√© d'activit√© ""SANS OBJET""";"2 solutions et 1 acte de pr√©vention :
+ * Solution 1 (fonctionnel) : D√©finition de r√®gles pour script correctif 
+   * pour les apprenants M√©decine/Pharma/Dentaire
    * pour les autres apprenants
- * Solution 2 (‡ partir de PÈgase v28) : A partir de PÈgase v28, la quotitÈ travaillÈe devient facultative. En cas de problËmes d'incohÈrence avec la CSP, elle peut Ítre mise ‡ vide
- * PrÈvention : rappel aux gestionnaires";TODO;23/04/2026 (v32)
-IdentitÈ;Non spÈcifique;EvolutionDesReferentiels;Codes catÈgories socio-professionnelles : la nomenclature a ÈtÈ prÈcisÈe, il faut mettre ‡ jour le rÈfÈrentiel;"Script de correspondance pour corriger les catÈgories socio-professionnelles. Choix fonctionnel ne correspondant pas forcÈment ‡ la rÈalitÈ
-Par exemple : code 61 transposÈ sur code 62.";TODO;17/07/2024 (v24)
-IdentitÈ;Non spÈcifique;Format;"Adresse mail personnelle invalide
-Exemple : "".@""";Correction manuelle;DÈtection : InscriptionAdministrative_Apogee_Format_Mail_detection.sql;17/07/2024 (v24)
-IdentitÈ;Non spÈcifique;Validite;Etablissement d'obtention du bac fermÈ (selon les dates PÈgase) ‡ la date d'obtention du bac;" * Corrections manuelles (si pb de sÈlection UAI) aprËs vÈrifications PJ
- * SINON : Solution provisoire : Sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualitÈ, la coadministration PÈgase peut intervenir sur les dates de validitÈ ‡ problËme de la nomenclature des Ètablissements";N/A;17/07/2024 (v24)
-IdentitÈ;Non spÈcifique;Validite;"Pays de naissance non valide ‡ la date de naissance
-Exemple : ArmÈnie en 1992, Azerbadjian en 1990,Ö";Solution provisoire : Sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualitÈ, la coadministration PÈgase peut intervenir sur les dates de validitÈ ‡ problËme de cette nomenclature;N/A;17/07/2024 (v24)
-IdentitÈ;ApogÈe;DonneeAbsente;"Lorsque le type de dernier diplÙme obtenu est ´ 900 ª dans ApogÈe (aucun diplÙme supÈrieur),
-l'annÈe d'obtention n'est pas obligatoire dans ApogÈe alors qu'elle le reste dans PÈgase.";" * A partir de PÈgase v28, si le type dernier diplÙme obtenu ApogÈe correspond ‡ ""aucun diplÙme"" alors l'annÈe d'obtention est initialisÈe avec la date d'entrÈe dans l'Ètablissement (si elle est renseignÈe) et l'annÈe prÈcÈdente sinon.
- * Si l'annÈe d'obtention du dernier diplome reste vide alors l'Ètablissement peut renseigner en base pivot l'annÈe d'obtention arbitraitement avec la valeur de l'annÈe prÈcÈdente via un script
- * PrÈvention : rappel aux gestionnaires";TODO;17/07/2024 (v28)
-IdentitÈ;ApogÈe;DonneeAbsente;"Code pays bac
-Dans ApogÈe, pas de notion de pays d'obtention du bac, mais un code dÈpartement 099 Etranger.";Correction manuelle ou par script : mettre ‡ jour le code pays bac ‡ 999 lorsque ce dernier ramËne un code dÈpartement 099.;TODO;17/07/2024 (v24)
-IdentitÈ;ApogÈe;OccurrenceManquante;Transco des Etablissement FranÁais dont le code ApogÈe n'existe pas dans PÈgase;"RequÍte pour lister tous les Ètablissements utilisÈs dans ApogÈe pour le bac et les cursus externes :
- * si code identique dans PÈgase, transco directe,
- * si code ApogÈe non trouvÈ dans PÈgase, recherche sur le libellÈ Ètablissement afin de trouver une correspondance :
-   => si correspondance trouvÈe, transco du code Ètablissement ApogÈe vers le ´†nouveau†ª code PÈgase
-   => si correspondance non trouvÈe, initialisation d'un code Ètablissement dans PÈgase et transco du code Ètablissement ApogÈe vers le mÍme code Ètablissement PÈgase";"DÈtection : TODO
+ * Solution 2 (√† partir de P√©gase v28) : A partir de P√©gase v28, la quotit√© travaill√©e devient facultative. En cas de probl√®mes d'incoh√©rence avec la CSP, elle peut √™tre mise √† vide
+ * Pr√©vention : rappel aux gestionnaires";TODO;23/04/2026 (v32)
+Identit√©;Non sp√©cifique;EvolutionDesReferentiels;Codes cat√©gories socio-professionnelles : la nomenclature a √©t√© pr√©cis√©e, il faut mettre √† jour le r√©f√©rentiel;"Script de correspondance pour corriger les cat√©gories socio-professionnelles. Choix fonctionnel ne correspondant pas forc√©ment √† la r√©alit√©
+Par exemple : code 61 transpos√© sur code 62.";TODO;17/07/2024 (v24)
+Identit√©;Non sp√©cifique;Format;"Adresse mail personnelle invalide
+Exemple : "".@""";Correction manuelle;D√©tection : InscriptionAdministrative_Apogee_Format_Mail_detection.sql;17/07/2024 (v24)
+Identit√©;Non sp√©cifique;Validite;√âtablissement d'obtention du bac ferm√© (selon les dates P√©gase) √† la date d'obtention du bac;" * Corrections manuelles (si pb de s√©lection UAI) apr√®s v√©rifications PJ
+ * SINON : Solution provisoire : Sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualit√©, l‚Äô√©quipe de support P√©gase peut intervenir sur les dates de validit√© √† probl√®me de la nomenclature des √©tablissements";N/A;17/07/2024 (v24)
+Identit√©;Non sp√©cifique;Validite;"Pays de naissance non valide √† la date de naissance
+Exemple : Arm√©nie en 1992, Azerbadjian en 1990,‚Ä¶";"Solution provisoire : Sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualit√©, l‚Äô√©quipe de support P√©gase peut intervenir sur les dates de validit√© √† probl√®me de cette nomenclature
+
+√Ä partir de P√©gase v34 cette donn√©e n‚Äôest plus obligatoire pour pouvoir poursuivre par une RDD INS ou une r√©inscription, il est donc √©galement possible de ne pas la reprendre (en supprimant cette donn√©e en base pivot pour les cas d‚Äôerreurs).";N/A;09/11/2026 (v34)
+Identit√©;Apog√©e;DonneeAbsente;"Code pays bac
+Dans Apog√©e, pas de notion de pays d'obtention du bac, mais un code d√©partement 099 Etranger.";Correction manuelle ou par script : mettre √† jour le code pays bac √† 999 lorsque ce dernier ram√®ne un code d√©partement 099.;TODO;17/07/2024 (v24)
+Identit√©;Apog√©e;OccurrenceManquante;Transco des Etablissement Fran√ßais dont le code Apog√©e n'existe pas dans P√©gase;"Requ√™te pour lister tous les √©tablissements utilis√©s dans Apog√©e pour le bac et les cursus externes :
+ * si code identique dans P√©gase, transco directe,
+ * si code Apog√©e non trouv√© dans P√©gase, recherche sur le libell√© √©tablissement afin de trouver une correspondance :
+   => si correspondance trouv√©e, transco du code √©tablissement Apog√©e vers le ¬´¬†nouveau¬†¬ª code P√©gase
+   => si correspondance non trouv√©e, initialisation d'un code √©tablissement dans P√©gase et transco du code √©tablissement Apog√©e vers le m√™me code √©tablissement P√©gase";"D√©tection : TODO
 Correction : N/A";17/07/2024 (v24)
-IdentitÈ;ApogÈe, Autres;Validite;"Types de BAC invalides/non compatibles avec l'annÈe d'obtention
-(Èvolution de nomenclatures+pas de date de fin de validitÈ dans apogÈe)";Correction manuelle ou par script  : affecter les bons types de BAC en fonction des annÈes d'obtention;TODO;17/07/2024 (v24)
-IdentitÈ;ApogÈe, Autres;Validite;"Etablissement de BAC invalide/non compatible avec l'annÈe d'obtention
-(Èvolution de nomenclatures+pas de date de fin de validitÈ dans apogÈe)";Correction manuelle ou par script quand Ètablissement non valide pour un code ´†gÈnÈrique†ª (‡ crÈer aussi dans PÈgase et ‡ ajouter dans le fichier transcos).;TODO;17/07/2024 (v24)
-IdentitÈ;ApogÈe, Autres;Validite;"Codes communes naissance Mayotte qui ont changÈ ‡ partir de 2008
-(Èvolution de nomenclatures+pas de date de fin de validitÈ dans apogÈe)";"Pour Mayotte, changement de dÈpartement en 2008, du coup, il faut rechercher le code correspondance et globalement appliquer :
+Identit√©;Apog√©e, Autres;Validite;"Types de BAC invalides/non compatibles avec l'ann√©e d'obtention
+(√©volution de nomenclatures+pas de date de fin de validit√© dans apog√©e)";Correction manuelle ou par script  : affecter les bons types de BAC en fonction des ann√©es d'obtention;TODO;17/07/2024 (v24)
+Identit√©;Apog√©e, Autres;Validite;"√âtablissement de BAC invalide/non compatible avec l'ann√©e d'obtention
+(√©volution de nomenclatures+pas de date de fin de validit√© dans apog√©e)";Correction manuelle ou par script quand √©tablissement non valide pour un code ¬´¬†g√©n√©rique¬†¬ª (√† cr√©er aussi dans P√©gase et √† ajouter dans le fichier transcos).;TODO;17/07/2024 (v24)
+Identit√©;Apog√©e, Autres;Validite;"Codes communes naissance Mayotte qui ont chang√© √† partir de 2008
+(√©volution de nomenclatures+pas de date de fin de validit√© dans apog√©e)";"Pour Mayotte, changement de d√©partement en 2008, du coup, il faut rechercher le code correspondance et globalement appliquer :
  * 985xx avant 2008
  * 976xx a partir de 2008
- => Ajustement en base pivot pour les Ètudiants nÈs avant 2008";TODO;17/07/2024 (v24)
-IdentitÈ;ApogÈe, Scolarix, Autres;Format;NumÈros de tÈlÈphone : formats invalides pour les pays Ètrangers;"Corrections en base pivot
-Remarque PC-Scol : Èvolution ApogÈe prÈvue dans services numÈriques pour normaliser numÈros de tÈlÈphone";Correction Scolarix  : InscriptionAdministrative_ScolarixPivot_Format_telephoneEtranger_correction.sql;17/07/2024 (v24)
-IdentitÈ;ApogÈe;Incoherence;"Apprenants avec bac franÁais (selon bac.COD_SIS_BAC) obtenu dans Ètablissement ""Ètranger"" (code TPE=10), 
-ce qui est impossible dans PÈgase";"1.Script de dÈtection
-2.Enlever le code TPE 10 et s'assurer que l'Ètablissement renseignÈ est bien dans la nomenclature des Ètablissements ApogÈe (et pas les Ètablissements Ètrangers !)";DÈtection : InscriptionAdministrative_Apogee_Incoherence_BacFrancaisEtranger_detection.sql;17/07/2024 (v24)
-InscriptionAdministrative;ApogÈe;DonneeNonReprise;Non reprise des inscriptions non validÈes et/ou non payÈes;S'assurer qu'il est normal qu'elles soient dans cet Ètat dans ApogÈe;;17/07/2024 (v24)
-OffreFormation;ApogÈe;Incoherence;Listes ApogÈe sans ELP;Identification des ELP et listes ApogÈe concernÈs et mise en place de scripts de suppression.;TODO;17/07/2024 (v24)
-OffreFormation;ApogÈe;RDDdansLeTemps;"Extraction des formations ‡ injecter :
-On fait des requÍtes ‡ un instant T dans ApogÈe... Le temps passe, les maquettes Èvoluent dans apogÈe, et on doit penser ‡ refaire les requÍtes pour paramÈtrer l'outillage de RDD (mypegase.env)";"Pas de solution pour le moment
-IdÈe : Permettre de faire des select dans ApogÈe afin d'avoir les donnÈes rÈelles.
-Cela peut aussi Ítre intÈressant au niveau des rÈfÈrentiels";TODO;17/07/2024 (v24)
-OffreFormation;ApogÈe;RDDdansLeTemps;"RDD ODF d'une VDI qui dÈtient plusieurs VET, si reprise d'une seule VET ‡ la fois :
--le nouveau dÈversement Ècrase le dÈversement prÈcÈdent (perte de la premiËre VET injectÈe)
--si les objets de formation prÈcÈdents ont dÈj‡ ÈtÈ validÈs => refus d'injection ";Il faut injecter l'intÈgralitÈ des VET d'une mÍme VDI en mÍme temps. ;N/A;17/07/2024 (v24)
-OffreFormation;ApogÈe;EvolutionDesReferentiels;"Valeurs de nomenclature utilisÈes dans ApogÈe avec plusieurs valeurs possibles dans PÈgase :
-Les mentions de diplÙme PÈgase sont liÈes aux types de diplÙme. Dans ApogÈe, elles níont aucun lien avec les types de diplÙme. Contrairement ‡ PÈgase, dans ApogÈe, une mÍme mention de diplÙme peut donc Ítre utilisÈe avec diffÈrents types de diplÙme
+ => Ajustement en base pivot pour les √©tudiants n√©s avant 2008";TODO;17/07/2024 (v24)
+Identit√©;Apog√©e, Scolarix, Autres;Format;Num√©ros de t√©l√©phone : formats invalides pour les pays √©trangers;"Corrections en base pivot
+Remarque PC-Scol : √©volution Apog√©e pr√©vue dans services num√©riques pour normaliser num√©ros de t√©l√©phone
+
+√Ä partir de P√©gase v34 cette donn√©e n‚Äôest plus obligatoire pour pouvoir poursuivre par une RDD INS ou une r√©inscription, il est donc √©galement possible de ne pas la reprendre (en supprimant cette donn√©e en base pivot pour les cas d‚Äôerreurs).";Correction Scolarix  : InscriptionAdministrative_ScolarixPivot_Format_telephoneEtranger_correction.sql;09/11/2026 (v34)
+Identit√©;Apog√©e;Incoherence;"Apprenants avec bac fran√ßais (selon bac.COD_SIS_BAC) obtenu dans √©tablissement ""√©tranger"" (code TPE=10), 
+ce qui est impossible dans P√©gase";"1.Script de d√©tection
+2.Enlever le code TPE 10 et s'assurer que l'√©tablissement renseign√© est bien dans la nomenclature des √©tablissements Apog√©e (et pas les √©tablissements √©trangers !)";D√©tection : InscriptionAdministrative_Apogee_Incoherence_BacFrancaisEtranger_detection.sql;17/07/2024 (v24)
+InscriptionAdministrative;Apog√©e;DonneeAbsente;"Lorsque le type de dernier dipl√¥me obtenu est ¬´ 900 ¬ª dans Apog√©e (aucun dipl√¥me sup√©rieur),
+l'ann√©e d'obtention n'est pas obligatoire dans Apog√©e alors qu'elle le reste dans P√©gase.";" * A partir de P√©gase v28, si le type dernier dipl√¥me obtenu Apog√©e correspond √† ""aucun dipl√¥me"" alors l'ann√©e d'obtention est initialis√©e avec la date d'entr√©e dans l'√©tablissement (si elle est renseign√©e) et l'ann√©e pr√©c√©dente sinon.
+ * Si l'ann√©e d'obtention du dernier dipl√¥me reste vide alors l'√©tablissement peut renseigner en base pivot l'ann√©e d'obtention arbitrairement avec la valeur de l'ann√©e pr√©c√©dente via un script
+ * Pr√©vention : rappel aux gestionnaires";TODO;17/07/2024 (v28)
+InscriptionAdministrative;Apog√©e;DonneeNonReprise;Non reprise des inscriptions non valid√©es et/ou non pay√©es;S'assurer qu'il est normal qu'elles soient dans cet √©tat dans Apog√©e;;17/07/2024 (v24)
+OffreFormation;Apog√©e;Incoherence;Listes Apog√©e sans ELP;Identification des ELP et listes Apog√©e concern√©s et mise en place de scripts de suppression.;TODO;17/07/2024 (v24)
+OffreFormation;Apog√©e;RDDdansLeTemps;"Extraction des formations √† injecter :
+On fait des requ√™tes √† un instant T dans Apog√©e... Le temps passe, les maquettes √©voluent dans apog√©e, et on doit penser √† refaire les requ√™tes pour param√©trer l'outillage de RDD (mypegase.env)";"Pas de solution pour le moment
+Id√©e : Permettre de faire des select dans Apog√©e afin d'avoir les donn√©es r√©elles.
+Cela peut aussi √™tre int√©ressant au niveau des r√©f√©rentiels";TODO;17/07/2024 (v24)
+OffreFormation;Apog√©e;RDDdansLeTemps;"RDD ODF d'une VDI qui d√©tient plusieurs VET, si reprise d'une seule VET √† la fois :
+-le nouveau d√©versement √©crase le d√©versement pr√©c√©dent (perte de la premi√®re VET inject√©e)
+-si les objets de formation pr√©c√©dents ont d√©j√† √©t√© valid√©s => refus d'injection ";Il faut injecter l'int√©gralit√© des VET d'une m√™me VDI en m√™me temps. ;N/A;17/07/2024 (v24)
+OffreFormation;Apog√©e;EvolutionDesReferentiels;"Valeurs de nomenclature utilis√©es dans Apog√©e avec plusieurs valeurs possibles dans P√©gase :
+Les mentions de dipl√¥me P√©gase sont li√©es aux types de dipl√¥me. Dans Apog√©e, elles n‚Äôont aucun lien avec les types de dipl√¥me. Contrairement √† P√©gase, dans Apog√©e, une m√™me mention de dipl√¥me peut donc √™tre utilis√©e avec diff√©rents types de dipl√¥me
 Par exemple :
-ï Dans ApogÈe, une mention de diplÙme de GÈnie civil ´ GEN ª peut Ítre utilisÈe avec une licence ainsi quíun master  
-ï Dans PÈgase, il faudra utiliser la mention de diplÙme MED042 pour une licence et la MED399 pour un master";"""Reventilation"" des mentions de diplÙmes via saisie de transcodifications avec le type de diplÙme. Le nombre maximum de transcodifications de mentions de diplÙmes ApogÈe saisies sera donc : (nombre mentions diplÙme) x (nombre types diplÙme).
+‚Ä¢ Dans Apog√©e, une mention de dipl√¥me de G√©nie civil ¬´ GEN ¬ª peut √™tre utilis√©e avec une licence ainsi qu‚Äôun master  
+‚Ä¢ Dans P√©gase, il faudra utiliser la mention de dipl√¥me MED042 pour une licence et la MED399 pour un master";"""Reventilation"" des mentions de dipl√¥mes via saisie de transcodifications avec le type de dipl√¥me. Le nombre maximum de transcodifications de mentions de dipl√¥mes Apog√©e saisies sera donc : (nombre mentions dipl√¥me) x (nombre types dipl√¥me).
 Par exemple :
-Si dans ApogÈe le code mention de diplÙme GÈnie civil est ´ GEN ª, si le type de diplÙme Ètablissement de licence est ´ 20 ª et le type de diplÙme Ètablissement de master est ´ 91 ª, la transcodification pour la mention diplÙme GÈnie civil devrait Ítre :
+Si dans Apog√©e le code mention de dipl√¥me G√©nie civil est ¬´ GEN ¬ª, si le type de dipl√¥me √©tablissement de licence est ¬´ 20 ¬ª et le type de dipl√¥me √©tablissement de master est ¬´ 91 ¬ª, la transcodification pour la mention dipl√¥me G√©nie civil devrait √™tre :
 codeSource => codePegase
 20-GEN	=> MED042
 91-GEN => MED399";N/A;25/10/2024 (v26)
-ChoixCursus;ApogÈe;DonneeNonReprise;IP sur ÈlÈment ou liste fermÈs/suspendus;FonctionnalitÈ RDD pot pourri permettant de reprendre dans PÈgase une maquette ´†technique†ª (aucun sens fonctionnel) incluant ÈlÈments, listes ouverts, fermÈs ou suspendus;N/A;17/07/2024 (v24)
-ChoixCursus;ApogÈe;Incoherence;IP sous une IP mËre en PRC;"1. Script de dÈtection
-2. Correction manuelle dans APOGEE (aprËs analyse, suppression de l'IP sous PRC ou suppression de la PRC)";DÈtection : ChoixCursus_Apogee_Incoherence_IPSousIPPRC_detection.sql;17/07/2024 (v24)
-ChoixCursus;ApogÈe;Incoherence;IP en PRC potentiellement non gÈrÈes par les flux automatiques de RDD du fait des particularitÈs suivantes : renconciations, erreurs de saisies, ...;"1. Scripts de dÈtection
-2. Actions manuelles dans la RDD et/ou dans PÈgase selon l'analyse fonctionnelle de l'Ètablissement";"DÈtection :
+ChoixCursus;Apog√©e;DonneeNonReprise;IP sur √©l√©ment ou liste ferm√©s/suspendus;Fonctionnalit√© RDD pot pourri permettant de reprendre dans P√©gase une maquette ¬´¬†technique¬†¬ª (aucun sens fonctionnel) incluant √©l√©ments, listes ouverts, ferm√©s ou suspendus;N/A;17/07/2024 (v24)
+ChoixCursus;Apog√©e;Incoherence;IP sous une IP m√®re en PRC;"1. Script de d√©tection
+2. Correction manuelle dans APOGEE (apr√®s analyse, suppression de l'IP sous PRC ou suppression de la PRC)";D√©tection : ChoixCursus_Apogee_Incoherence_IPSousIPPRC_detection.sql;17/07/2024 (v24)
+ChoixCursus;Apog√©e;Incoherence;IP en PRC potentiellement non g√©r√©es par les flux automatiques de RDD du fait des particularit√©s suivantes : renonciations, erreurs de saisies, ...;"1. Scripts de d√©tection
+2. Actions manuelles dans la RDD et/ou dans P√©gase selon l'analyse fonctionnelle de l'√©tablissement";"D√©tection :
 - ChoixCursus_Apogee_Incoherence_IPPRC_resultats_01_detection.sql
 - ChoixCursus_Apogee_Incoherence_IPPRC_resultats_02_detail_detection.sql";13/03/2026 (v31)
-ChoixCursus;ApogÈe;Incoherence;IP sans IA;"1. S'assurer de la normalitÈ de la situation
-2. Si besoin, rÈgulariser manuellement soit en crÈant l'IA associÈe ou en supprimant l'IP ‡ la VET et aux ELP";N/A;17/07/2024 (v24)
-ChoixCursus;ApogÈe;DonneeNonReprise;Acquis non capitalisÈs du fait de rÈsultats obtenus sur une annÈe en dehors du pÈrimËtre de RDD;"Soit, saisie manuelle d'amÈnagements la premiËre annÈe du pÈrimËtre de RDD pour les apprenants ayant obtenu un rÈsultat positif.
-Soit, utilisation de l'outil de simulation d'amÈnagements pour les acquis capitalisÈs ‡ partir de rÈsultats en dehors du pÈrimËtre de RDD";https://github.com/PC-Scol/rdd_prc_to_vac;19/05/2025 (v28)
-ControleCursus;ApogÈe, Autres;Incoherence;Lignes rÈsultats APOGEE avec barËme erronÈ (diffÈrent des autres lignes);"Pas de solution ‡ ce jour ; objets exclus de la reprise des notes et rÈsultats (suppression des lignes en base pivot)
- => les notes sur un barËme erronÈ ne pourraient pas servir ‡ un recalcul PÈgase. En gÈnÈral, le calcul aux objets pËres a ÈtÈ effectuÈ dans APOGEE (et repris), donc l'absence de ces N/R au niveau infÈrieur ne pose pas de problËme particulier.";;17/07/2024 (v24)
+ChoixCursus;Apog√©e;Incoherence;IP sans IA;"1. S'assurer de la normalit√© de la situation
+2. Si besoin, r√©gulariser manuellement soit en cr√©ant l'IA associ√©e ou en supprimant l'IP √† la VET et aux ELP";N/A;17/07/2024 (v24)
+ChoixCursus;Apog√©e;DonneeNonReprise;Acquis non capitalis√©s du fait de r√©sultats obtenus sur une ann√©e en dehors du p√©rim√®tre de RDD;"Soit, saisie manuelle d'am√©nagements la premi√®re ann√©e du p√©rim√®tre de RDD pour les apprenants ayant obtenu un r√©sultat positif.
+Soit, utilisation de l'outil de simulation d'am√©nagements pour les acquis capitalis√©s √† partir de r√©sultats en dehors du p√©rim√®tre de RDD";https://github.com/PC-Scol/rdd_prc_to_vac;19/05/2025 (v28)
+ControleCursus;Apog√©e, Autres;Incoherence;Lignes r√©sultats APOGEE avec bar√®me erron√© (diff√©rent des autres lignes);"Pas de solution √† ce jour ; objets exclus de la reprise des notes et r√©sultats (suppression des lignes en base pivot)
+ => les notes sur un bar√®me erron√© ne pourraient pas servir √† un recalcul P√©gase. En g√©n√©ral, le calcul aux objets p√®res a √©t√© effectu√© dans APOGEE (et repris), donc l'absence de ces N/R au niveau inf√©rieur ne pose pas de probl√®me particulier.";;17/07/2024 (v24)
