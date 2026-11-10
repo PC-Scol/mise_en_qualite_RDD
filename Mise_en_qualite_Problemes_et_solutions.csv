@@ -38,10 +38,6 @@ Identité;Non spécifique;Validite;"Pays de naissance non valide à la date de n
 Exemple : Arménie en 1992, Azerbadjian en 1990,…";"Solution provisoire : Sur demande explicite via ticket de support, en cas d'absence de solution alternative de mise en qualité, l’équipe de support Pégase peut intervenir sur les dates de validité à problème de cette nomenclature
 
 À partir de Pégase v34 cette donnée n’est plus obligatoire pour pouvoir poursuivre par une RDD INS ou une réinscription, il est donc également possible de ne pas la reprendre (en supprimant cette donnée en base pivot pour les cas d’erreurs).";N/A;09/11/2026 (v34)
-Identité;Apogée;DonneeAbsente;"Lorsque le type de dernier diplôme obtenu est « 900 » dans Apogée (aucun diplôme supérieur),
-l'année d'obtention n'est pas obligatoire dans Apogée alors qu'elle le reste dans Pégase.";" * A partir de Pégase v28, si le type dernier diplôme obtenu Apogée correspond à ""aucun diplôme"" alors l'année d'obtention est initialisée avec la date d'entrée dans l'établissement (si elle est renseignée) et l'année précédente sinon.
- * Si l'année d'obtention du dernier diplôme reste vide alors l'établissement peut renseigner en base pivot l'année d'obtention arbitrairement avec la valeur de l'année précédente via un script
- * Prévention : rappel aux gestionnaires";TODO;17/07/2024 (v28)
 Identité;Apogée;DonneeAbsente;"Code pays bac
 Dans Apogée, pas de notion de pays d'obtention du bac, mais un code département 099 Etranger.";Correction manuelle ou par script : mettre à jour le code pays bac à 999 lorsque ce dernier ramène un code département 099.;TODO;17/07/2024 (v24)
 Identité;Apogée;OccurrenceManquante;Transco des Etablissement Français dont le code Apogée n'existe pas dans Pégase;"Requête pour lister tous les établissements utilisés dans Apogée pour le bac et les cursus externes :
@@ -66,6 +62,10 @@ Remarque PC-Scol : évolution Apogée prévue dans services numériques pour nor
 Identité;Apogée;Incoherence;"Apprenants avec bac français (selon bac.COD_SIS_BAC) obtenu dans établissement ""étranger"" (code TPE=10), 
 ce qui est impossible dans Pégase";"1.Script de détection
 2.Enlever le code TPE 10 et s'assurer que l'établissement renseigné est bien dans la nomenclature des établissements Apogée (et pas les établissements étrangers !)";Détection : InscriptionAdministrative_Apogee_Incoherence_BacFrancaisEtranger_detection.sql;17/07/2024 (v24)
+InscriptionAdministrative;Apogée;DonneeAbsente;"Lorsque le type de dernier diplôme obtenu est « 900 » dans Apogée (aucun diplôme supérieur),
+l'année d'obtention n'est pas obligatoire dans Apogée alors qu'elle le reste dans Pégase.";" * A partir de Pégase v28, si le type dernier diplôme obtenu Apogée correspond à ""aucun diplôme"" alors l'année d'obtention est initialisée avec la date d'entrée dans l'établissement (si elle est renseignée) et l'année précédente sinon.
+ * Si l'année d'obtention du dernier diplôme reste vide alors l'établissement peut renseigner en base pivot l'année d'obtention arbitrairement avec la valeur de l'année précédente via un script
+ * Prévention : rappel aux gestionnaires";TODO;17/07/2024 (v28)
 InscriptionAdministrative;Apogée;DonneeNonReprise;Non reprise des inscriptions non validées et/ou non payées;S'assurer qu'il est normal qu'elles soient dans cet état dans Apogée;;17/07/2024 (v24)
 OffreFormation;Apogée;Incoherence;Listes Apogée sans ELP;Identification des ELP et listes Apogée concernés et mise en place de scripts de suppression.;TODO;17/07/2024 (v24)
 OffreFormation;Apogée;RDDdansLeTemps;"Extraction des formations à injecter :
